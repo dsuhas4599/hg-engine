@@ -9,9 +9,9 @@
 
  ``CRY_PSEUDOBANK_START`` is where the pseudobanks start in the SDAT for new cries.  To save on sound heap RAM space, new banks are just detected and forced to load cries instead of having the massive structure that comes with it.  By default 778, which is the first empty index of SBNK's in the vanilla SDAT.
 
- ``DEBUG_NEEDS_TESTING`` (``armips/include/config.s`` only) at the moment just shouldn't be touched.  Keep it at 0.
+ ``LEARNSET_TOTAL_MOVES`` is the amount of moves that should be learned per Pokémon at level up plus one for the termination sequence.
 
- ``LEARNSET_TOTAL_MOVES`` (``armips/include/config.s`` only) is the amount of moves that should be learned per Pokémon at level up plus one for the termination sequence.
+ ``DEBUG_NEEDS_TESTING`` (``armips/include/config.s`` only) at the moment just shouldn't be touched.  Keep it at 0.
 
  ``BATTLE_MODE_FORCE_SET`` (``armips/include/config.s`` only) is the toggle to force set mode in the ROM.  Set to 1 to enable, 0 will use the default behavior.
 
@@ -51,7 +51,11 @@
 
  ``DISABLE_END_OF_TURN_WEATHER_MESSAGE`` (``include/config.h`` only) will remove end-of-turn weather printing for everything but Hail and Sandstorm, which still play the animation before harming the Pokémon.  There is a small overlay over the Fight button to show which weather is active.  The config defaults to keeping the weather printing at the end of the turn.
 
- ``EXPAND_PC_BOXES`` (``include/config.h`` only) will expand the PC boxes to 30 in the game from the original 18.  Boxes are expanded to 18 by default.
+ ``EXPAND_PC_BOXES`` (``include/config.h`` only) will expand the PC boxes to 30 in the game from the original 18.  Boxes are expanded to 30 by default.
+
+ ``FRIENDSHIP_EVOLUTION_THRESHOLD`` (``include/config.h`` only) defines the threshold for evolutions that involve friendship to start happening.  This is vanilla 220, but in modern generations is 160.
+
+ ``RESTORE_ITEMS_AT_BATTLE_END`` (``include/config.h`` only) will restore most single-use items at the end of the battle if defined.  This does not include held berries per modern generation standards.
 
 ### ``scripts\make.py`` and ``linker.ld``
  On line 13 of ``scripts/make.py``, change ``OFFSET_TO_START`` to be your location in overlay 129 with enough free space.  This is separate from the above one.  MAKE SURE THE OFFSETS DON'T OVERLAP.

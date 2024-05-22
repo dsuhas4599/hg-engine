@@ -22764,7 +22764,7 @@ mondata SPECIES_MEGA_KANGASKHAN, "-----"
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
-    abilities ABILITY_PURE_POWER, ABILITY_PURE_POWER //ABILITY_PARENTAL_BOND, ABILITY_PARENTAL_BOND
+    abilities ABILITY_PARENTAL_BOND, ABILITY_PARENTAL_BOND
     runchance 125
     colorflip 0, 0
 
@@ -23260,7 +23260,7 @@ mondata SPECIES_MEGA_RAYQUAZA, "-----"
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-    abilities ABILITY_CLOUD_NINE /*ABILITY_DELTA_STREAM*/, ABILITY_NONE
+    abilities ABILITY_DELTA_STREAM, ABILITY_NONE
     runchance 0
     colorflip 0, 0
 

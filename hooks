@@ -1,4 +1,5 @@
 #include "include/config.h"
+#include "include/debug.h"
 
 #overlay 1 is loaded in at 021E5900
 #overlay 2 is loaded in at 02245B80
@@ -99,6 +100,10 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 btl_scr_cmd_33_statbuffchange 080074B8 3
 #022404e0
 0012 btl_scr_cmd_54_ohko_move_handle 08008C20 3
+0012 CheckMoveIsChargeMove 022525AC 2
+0012 btl_scr_cmd_5f_trysleeptalk 02240F7C 3
+#02241F10
+0012 btl_scr_cmd_6f_fury_cutter_damage_calc 02241F10 3
 #02242710
 0012 btl_scr_cmd_7c_beat_up_damage_calc 0800AE50 3
 #0224324C
@@ -115,6 +120,11 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 btl_scr_cmd_27_shouldgetexp 08006DE0 3
 0012 btl_scr_cmd_0E_waitmessage 0223DCAC 3
 0012 Link_QueueIsEmpty 0224ED48 1
+0012 btl_scr_cmd_87_tryknockoff 02242EB4 3
+0012 BtlCmd_WeatherHPRecovery 02242380 3
+0012 BtlCmd_CalcWeatherBallParams 022432AC 3
+0012 BtlCmd_TrySubstitute 022414F0 3
+0012 BtlCmd_RapidSpin 02242238 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -419,3 +429,28 @@ arm9 sub_02074128 02074128 1
 
 # allow for crazy shiny odds calcs
 arm9 CalcShininessByOtIdAndPersonality 02070068 2
+
+# expand animation command indices
+0007 GrabAnimScriptCommand 0221F8B0 1
+
+# evolution level up moves
+arm9 MonTryLearnMoveOnLevelUp 02071534 3
+
+# edit the playcry command to potentially take form into account
+0007 AnimCmd_PlayCryEdit_hook 0221F854 0
+
+arm9 ScrCmd_DaycareSanitizeMon 0204CFB8 1
+
+# 0224C018 + 4 = 224C01C
+0012 BattleSystem_CheckMoveEffect_hook 224C01C 5
+
+0012 BattleControllerPlayer_UpdateMonCondition 02249CC4 2
+
+#ifdef DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
+arm9 AllocFail_hook 0201AA7C 0
+#endif
+# DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
+
+
+0012 ov12_0224D368 0224D368 3
+0012 ov12_0224C4D8 0224C4D8 3
